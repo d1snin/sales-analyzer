@@ -1,7 +1,6 @@
-package dev.d1s.agroautowebsite.ui
+package dev.d1s.sellsanalysiswebsite.ui
 
 import kweb.AttributeBuilder
-import kweb.classes
 
 val attrs get() = AttributeBuilder()
 

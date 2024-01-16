@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.d1s.agroautowebsite.configuration
+package dev.d1s.sellsanalysiswebsite.configuration
 
 import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationConfigurer
 import io.ktor.server.application.*

@@ -1,4 +1,4 @@
-package dev.d1s.agroautowebsite.ui
+package dev.d1s.sellsanalysiswebsite.ui
 
 object Paths {
 

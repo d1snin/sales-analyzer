@@ -1,7 +1,7 @@
-package dev.d1s.agroautowebsite.configuration
+package dev.d1s.sellsanalysiswebsite.configuration
 
-import dev.d1s.agroautowebsite.ui.component.createBody
-import dev.d1s.agroautowebsite.ui.component.createHead
+import dev.d1s.sellsanalysiswebsite.ui.component.createBody
+import dev.d1s.sellsanalysiswebsite.ui.component.createHead
 import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationConfigurer
 import dev.d1s.exkt.kweb.plugins.bootstrap.bootstrapIconsPlugin
 import dev.d1s.exkt.kweb.plugins.bootstrap.bootstrapPlugin

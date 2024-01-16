@@ -1,14 +1,14 @@
-package dev.d1s.agroautowebsite.ui.component
+package dev.d1s.sellsanalysiswebsite.ui.component
 
-import dev.d1s.agroautowebsite.ui.Resources
+import dev.d1s.sellsanalysiswebsite.ui.Resources
 import kweb.*
 import kweb.html.Document
 import kweb.html.HeadElement
 import java.net.URL
 
-private const val TITLE = "ГК АГРОАВТО - Грузоперевозки по РФ и СНГ"
+private const val TITLE = "Анализ затрат"
 private const val DESCRIPTION =
-    "Выгодные грузоперевозки по России и СНГ. Полное сопровождение на всех этапах. Оперативное решение проблем."
+    "Анализ расходов и прибыли торговой точки."
 
 // https://colorpicker.me/#b3d4b5
 private const val THEME_COLOR = "#b3d4b5"
@@ -17,8 +17,6 @@ fun Document.createHead() {
     head {
         createCommonMeta()
         createTitleAndDescription()
-        createOpenGraphMeta()
-        createTwitterMeta()
         createFaviconLinks()
     }
 }
@@ -33,20 +31,6 @@ private fun ElementCreator<HeadElement>.createTitleAndDescription() {
     title().text(TITLE)
     meta(name = "title", content = TITLE)
     meta(name = "description", content = DESCRIPTION)
-}
-
-private fun ElementCreator<HeadElement>.createOpenGraphMeta() {
-    meta(name = "og:type", content = "website")
-    meta(name = "og:title", content = TITLE)
-    meta(name = "og:description", content = DESCRIPTION)
-    meta(name = "og:image", content = Resources.BANNER_URL)
-}
-
-private fun ElementCreator<HeadElement>.createTwitterMeta() {
-    meta(name = "twitter:card", content = "summary_large_image")
-    meta(name = "twitter:title", content = TITLE)
-    meta(name = "twitter:description", content = DESCRIPTION)
-    meta(name = "twitter:image", content = Resources.BANNER_URL)
 }
 
 private fun ElementCreator<HeadElement>.createFaviconLinks() {

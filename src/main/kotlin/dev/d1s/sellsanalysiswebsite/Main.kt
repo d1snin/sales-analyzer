@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-package dev.d1s.agroautowebsite
+package dev.d1s.sellsanalysiswebsite
 
 fun main() {
-    AgroAutoWebsiteApplication().launch()
+    SellsAnalysisWebsiteApplication().launch()
 }

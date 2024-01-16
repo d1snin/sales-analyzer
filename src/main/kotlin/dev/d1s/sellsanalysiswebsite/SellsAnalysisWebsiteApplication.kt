@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package dev.d1s.agroautowebsite
+package dev.d1s.sellsanalysiswebsite
 
-import dev.d1s.agroautowebsite.configuration.ApplicationConfigBean
-import dev.d1s.agroautowebsite.configuration.Website
+import dev.d1s.sellsanalysiswebsite.configuration.ApplicationConfigBean
+import dev.d1s.sellsanalysiswebsite.configuration.Website
 import dev.d1s.exkt.ktor.server.koin.configuration.Configurers
 import dev.d1s.exkt.ktor.server.koin.configuration.ServerApplication
 import dev.d1s.exkt.ktor.server.koin.configuration.builtin.Connector
@@ -27,7 +27,7 @@ import io.ktor.server.netty.*
 import org.koin.core.component.KoinComponent
 import org.lighthousegames.logging.logging
 
-class AgroAutoWebsiteApplication : ServerApplication(), KoinComponent {
+class SellsAnalysisWebsiteApplication : ServerApplication(), KoinComponent {
 
     override val configurers: Configurers = listOf(
         Connector,
