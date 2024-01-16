@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  sells-analysis:
+    image: sells-analysis:latest
+    container_name: sells-analysis
+    restart: always
+    ports:
+      - "9384:9384"
+    env_file:
+      - "../.env"
