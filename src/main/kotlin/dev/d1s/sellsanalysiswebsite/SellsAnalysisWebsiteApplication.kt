@@ -16,12 +16,12 @@
 
 package dev.d1s.sellsanalysiswebsite
 
-import dev.d1s.sellsanalysiswebsite.configuration.ApplicationConfigBean
-import dev.d1s.sellsanalysiswebsite.configuration.Website
 import dev.d1s.exkt.ktor.server.koin.configuration.Configurers
 import dev.d1s.exkt.ktor.server.koin.configuration.ServerApplication
 import dev.d1s.exkt.ktor.server.koin.configuration.builtin.Connector
 import dev.d1s.exkt.ktor.server.koin.configuration.builtin.Di
+import dev.d1s.sellsanalysiswebsite.configuration.ApplicationConfigBean
+import dev.d1s.sellsanalysiswebsite.configuration.Website
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.koin.core.component.KoinComponent
