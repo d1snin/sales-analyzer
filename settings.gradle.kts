@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-rootProject.name = "sells-analysis"
+rootProject.name = "sales-analyzer"
 
 pluginManagement {
     plugins {

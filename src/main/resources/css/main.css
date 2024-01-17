@@ -3,11 +3,14 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
+    color: lavender;
 }
 
 body {
     min-height: 100vh;
     height: 100vh;
+
+    background-color: #212121;
 }
 
 p {

@@ -14,8 +14,18 @@
  * limitations under the License.
  */
 
-package dev.d1s.sellsanalysiswebsite
+package dev.d1s.salesanalyzer.configuration
 
-fun main() {
-    SellsAnalysisWebsiteApplication().launch()
+import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationConfigurer
+import io.ktor.server.application.*
+import io.ktor.server.config.*
+import org.koin.core.module.Module
+
+object ApplicationConfigBean : ApplicationConfigurer {
+
+    override fun Application.configure(module: Module, config: ApplicationConfig) {
+        module.single {
+            config
+        }
+    }
 }

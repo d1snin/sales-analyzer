@@ -1,4 +1,4 @@
-package dev.d1s.sellsanalysiswebsite.ui
+package dev.d1s.salesanalyzer.ui
 
 import kweb.AttributeBuilder
 

@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package dev.d1s.sellsanalysiswebsite
+package dev.d1s.salesanalyzer
 
 import dev.d1s.exkt.ktor.server.koin.configuration.Configurers
 import dev.d1s.exkt.ktor.server.koin.configuration.ServerApplication
 import dev.d1s.exkt.ktor.server.koin.configuration.builtin.Connector
 import dev.d1s.exkt.ktor.server.koin.configuration.builtin.Di
-import dev.d1s.sellsanalysiswebsite.configuration.ApplicationConfigBean
-import dev.d1s.sellsanalysiswebsite.configuration.Website
+import dev.d1s.salesanalyzer.configuration.ApplicationConfigBean
+import dev.d1s.salesanalyzer.configuration.Website
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.koin.core.component.KoinComponent
 import org.lighthousegames.logging.logging
 
-class SellsAnalysisWebsiteApplication : ServerApplication(), KoinComponent {
+class SalesAnalyzerApplication : ServerApplication(), KoinComponent {
 
     override val configurers: Configurers = listOf(
         Connector,

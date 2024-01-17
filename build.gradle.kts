@@ -70,7 +70,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("dev.d1s.sellsanalysiswebsite.MainKt")
+    mainClass.set("dev.d1s.salesanalyzer.MainKt")
 }
 
 tasks.withType<KotlinCompile> {
