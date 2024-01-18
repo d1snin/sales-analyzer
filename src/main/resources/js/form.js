@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 
-package dev.d1s.salesanalyzer.ui.component
-
-import dev.d1s.exkt.kweb.plugins.bootstrap.*
-import dev.d1s.salesanalyzer.ui.attrs
-import kweb.div
-import kweb.html.Document
-
-fun Document.createBody() {
-    body {
-        div(attrs.bsContainer.bsDFlex.bsFlexColumn.bsAlignItemsStart.bsPt5) {
-            heading()
-            simulationContent()
-        }
-
-        simulationModalForm()
+function saveInput(elementId) {
+    let element = document.getElementById(elementId)
+    element.oninput = function (_) {
+        localStorage.setItem(elementId, `"${element.value}"`)
     }
 }
+
+window.addEventListener("load", function () {
+    saveInput("simulation-name-input")
+    saveInput("simulation-cost-input")
+    saveInput("simulation-sell-input")
+    saveInput("simulation-count-input")
+    saveInput("simulation-return-ratio-input")
+    saveInput("simulation-expense-input")
+})

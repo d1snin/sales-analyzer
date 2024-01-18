@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package dev.d1s.salesanalyzer.ui.component
+package dev.d1s.salesanalyzer.data
 
-import dev.d1s.exkt.kweb.plugins.bootstrap.*
-import dev.d1s.salesanalyzer.ui.attrs
-import kweb.div
-import kweb.html.Document
+import dev.d1s.salesanalyzer.entity.Simulation
+import kweb.components.Component
+import kweb.state.render
 
-fun Document.createBody() {
-    body {
-        div(attrs.bsContainer.bsDFlex.bsFlexColumn.bsAlignItemsStart.bsPt5) {
-            heading()
-            simulationContent()
-        }
+fun Component.renderWithCurrentSimulation(block: Component.(Result<Simulation>) -> Unit) {
+    val simulation = SimulationRepository.getBySession(browser.sessionId)
 
-        simulationModalForm()
+    render(simulation) {
+        block(it)
     }
 }
