@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-function saveInput(elementId) {
-    let element = document.getElementById(elementId);
-    element.oninput = function (_) {
-        localStorage.setItem(elementId, `"${element.value}"`);
+package dev.d1s.salesanalyzer.ui.component
+
+import dev.d1s.exkt.kweb.plugins.bootstrap.*
+import dev.d1s.salesanalyzer.ui.attrs
+import kweb.a
+import kweb.components.Component
+import kweb.div
+import kweb.i
+
+private const val PROJECT_URL = "https://github.com/d1snin/sales-analyzer"
+private const val LINK_TEXT = "Код на GitHub"
+
+fun Component.footer() {
+    div(attrs.bsW100.bsMt4.bsDFlex.bsJustifyContentCenter.bsTextSecondary) {
+        i(attrs.bi.biGithub.bsTextSecondary.bsMe2)
+        a(attrs.bsTextReset, href = PROJECT_URL).text(LINK_TEXT)
     }
 }
-
-window.addEventListener("load", function () {
-    saveInput("simulation-name-input");
-    saveInput("simulation-cost-input");
-    saveInput("simulation-sell-input");
-    saveInput("simulation-count-input");
-    saveInput("simulation-return-ratio-input");
-    saveInput("simulation-expense-input");
-});

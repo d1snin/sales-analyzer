@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-function saveInput(elementId) {
-    let element = document.getElementById(elementId);
-    element.oninput = function (_) {
-        localStorage.setItem(elementId, `"${element.value}"`);
+package dev.d1s.salesanalyzer.plugin
+
+import kweb.plugins.KwebPlugin
+import org.jsoup.nodes.Document
+
+class ChartJsPlugin : KwebPlugin() {
+
+    override fun decorate(doc: Document) {
+        doc.head().appendElement("script")
+            .attr("src", CHART_JS_URL)
+    }
+
+    private companion object {
+
+        private const val CHART_JS_URL =
+            "https://cdn.jsdelivr.net/npm/chart.js"
     }
 }
 
-window.addEventListener("load", function () {
-    saveInput("simulation-name-input");
-    saveInput("simulation-cost-input");
-    saveInput("simulation-sell-input");
-    saveInput("simulation-count-input");
-    saveInput("simulation-return-ratio-input");
-    saveInput("simulation-expense-input");
-});
+val chartJsPlugin get() = ChartJsPlugin()

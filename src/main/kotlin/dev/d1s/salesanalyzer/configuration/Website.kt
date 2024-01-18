@@ -19,6 +19,7 @@ package dev.d1s.salesanalyzer.configuration
 import dev.d1s.exkt.ktor.server.koin.configuration.ApplicationConfigurer
 import dev.d1s.exkt.kweb.plugins.bootstrap.bootstrapIconsPlugin
 import dev.d1s.exkt.kweb.plugins.bootstrap.bootstrapPlugin
+import dev.d1s.salesanalyzer.plugin.chartJsPlugin
 import dev.d1s.salesanalyzer.ui.component.createBody
 import dev.d1s.salesanalyzer.ui.component.createHead
 import io.ktor.server.application.*
@@ -42,9 +43,9 @@ object Website : ApplicationConfigurer {
 
         install(Kweb) {
             val cssPlugin = CSSPlugin("css", "main.css")
-            val jsPlugin = JavascriptPlugin("js", "form.js")
+            val jsPlugin = JavascriptPlugin("js", setOf("form.js", "chart.js"))
 
-            plugins = listOf(bootstrapPlugin, bootstrapIconsPlugin, cssPlugin, jsPlugin)
+            plugins = listOf(bootstrapPlugin, bootstrapIconsPlugin, chartJsPlugin, cssPlugin, jsPlugin)
         }
 
         installKwebOnRemainingRoutes {

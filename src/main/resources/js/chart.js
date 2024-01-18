@@ -14,21 +14,30 @@
  * limitations under the License.
  */
 
-package dev.d1s.salesanalyzer.ui.component
+function renderSimulationChart(data) {
+    let ctx = document.getElementById("simulation-chart");
 
-import dev.d1s.exkt.kweb.plugins.bootstrap.*
-import dev.d1s.salesanalyzer.ui.attrs
-import kweb.div
-import kweb.html.Document
+    let position = 0;
 
-fun Document.createBody() {
-    body {
-        div(attrs.bsContainer.bsDFlex.bsFlexColumn.bsAlignItemsStart.bsPt5) {
-            heading()
-            simulationContent()
-            footer()
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: data.map(function (_) {
+                position++;
+                return position;
+            }),
+            datasets: [{
+                label: "Остаток счета",
+                data: data,
+                borderWidth: 0.2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-
-        simulationModalForm()
-    }
+    });
 }

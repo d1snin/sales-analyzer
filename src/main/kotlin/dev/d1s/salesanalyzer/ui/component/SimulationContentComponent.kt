@@ -20,17 +20,25 @@ import dev.d1s.exkt.kweb.plugins.bootstrap.*
 import dev.d1s.salesanalyzer.data.renderWithCurrentSimulation
 import dev.d1s.salesanalyzer.entity.Simulation
 import dev.d1s.salesanalyzer.ui.attrs
+import kotlinx.serialization.json.JsonArray
 import kweb.*
 import kweb.components.Component
+import kweb.util.json
+import kotlin.math.roundToInt
+
+private const val CHART_CANVAS_ID = "simulation-chart"
 
 fun Component.simulationContent() {
     div(attrs.bsDFlex.bsW100.bsMt4) {
-        renderWithCurrentSimulation { simulation ->
-            simulation.onSuccess {
-                resultTable(simulation = it)
+        renderWithCurrentSimulation { simulationResult ->
+            simulationResult.onSuccess { simulation ->
+                div(attrs.bsW100.bsDFlex.bsFlexColumn) {
+                    resultTable(simulation)
+                    resultChart(simulation)
+                }
             }
 
-            simulation.onFailure {
+            simulationResult.onFailure {
                 noSimulationAlert(it.message ?: "Что-то пошло не так.")
             }
         }
@@ -56,6 +64,15 @@ private fun Component.resultTable(simulation: Simulation) {
             row(name = "Остаток счета", value = simulation.balance.toString())
         }
     }
+}
+
+private fun Component.resultChart(simulation: Simulation) {
+    div(attrs.bsW100.bsH100.bsMt4) {
+        element("canvas", attrs.id(CHART_CANVAS_ID))
+    }
+
+    val data = simulation.sales.map { it.balance.roundToInt().json }
+    browser.callJsFunction("renderSimulationChart({})", JsonArray(data))
 }
 
 private fun Component.noSimulationAlert(message: String) {
