@@ -43,8 +43,8 @@ object SimulationRunner {
         val sales = product.doSales()
         val profit = sales.calcProfit(product)
         val totalProfit = sales.calcTotalProfit(product)
-        val roi = product.calcRoi(profit)
         val totalExpense = sales.calcTotalExpense(product)
+        val roi = calcRoi(profit, totalExpense)
         val balance = sales.last().balance
 
         val simulation = Simulation(product, sales, profit, totalProfit, roi, totalExpense, balance)
@@ -91,8 +91,8 @@ object SimulationRunner {
     private fun ProductSales.calcTotalProfit(product: Product) =
         size * product.sell
 
-    private fun Product.calcRoi(profit: Double) =
-        (((profit + (sell - cost)) / cost) * 100).roundToInt()
+    private fun calcRoi(profit: Double, totalExpense: Double) =
+        (((profit - totalExpense) / totalExpense) * 100).roundToInt()
 
     private fun ProductSales.calcTotalExpense(product: Product) =
         size * product.expense
