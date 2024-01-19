@@ -207,7 +207,7 @@ private fun Product.validate() =
             error("Кол-во не может быть больше тысячи.")
         }
 
-        if (returnRatio > 90.0) {
+        if (returnRatio > 0.9) {
             error("Процент возвратов не должен превышать 90%.")
         }
 
