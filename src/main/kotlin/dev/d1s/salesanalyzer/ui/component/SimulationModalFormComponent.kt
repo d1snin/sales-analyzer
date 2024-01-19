@@ -91,7 +91,7 @@ fun <E : Element> E.configureSimulationModalFormTrigger(): E {
 }
 
 private fun Component.modalForm() {
-    form {
+    form().set("autocomplete", "off").new {
         textInput(FORM_NAME_ID, FORM_NAME_LABEL)
         textInput(FORM_COST_ID, FORM_COST_LABEL, type = InputType.number)
         textInput(FORM_SELL_ID, FORM_SELL_LABEL, type = InputType.number)

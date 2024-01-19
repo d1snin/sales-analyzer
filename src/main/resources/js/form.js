@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+const inputs = [
+    "simulation-name-input",
+    "simulation-cost-input",
+    "simulation-sell-input",
+    "simulation-count-input",
+    "simulation-return-ratio-input",
+    "simulation-expense-input"
+];
+
 function saveInput(elementId) {
     let element = document.getElementById(elementId);
     element.oninput = function (_) {
@@ -21,11 +30,16 @@ function saveInput(elementId) {
     }
 }
 
+function clearInput(elementId) {
+    localStorage.removeItem(elementId);
+}
+
 window.addEventListener("load", function () {
-    saveInput("simulation-name-input");
-    saveInput("simulation-cost-input");
-    saveInput("simulation-sell-input");
-    saveInput("simulation-count-input");
-    saveInput("simulation-return-ratio-input");
-    saveInput("simulation-expense-input");
+    inputs.forEach(function (it) {
+        clearInput(it);
+    });
+
+    inputs.forEach(function (it) {
+        saveInput(it);
+    });
 });
